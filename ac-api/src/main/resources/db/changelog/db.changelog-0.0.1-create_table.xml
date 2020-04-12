@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Création des tables -->
+    <changeSet author="alexis" id="1">
+        <createTable tableName="TYPE_ESPECE" remarks="Table regroupant le type espèce">
+            <column name="ID_TYPE_ESPECE" type="NUMBER(8, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TYPE" type="VARCHAR(20)"/>
+        </createTable>
+
+        <createIndex tableName="TYPE_ESPECE" indexName="IDX_PK_TYPE_ESPECE" unique="true">
+            <column name="ID_TYPE_ESPECE"/>
+        </createIndex>
+        <addPrimaryKey tableName="TYPE_ESPECE" columnNames="ID_TYPE_ESPECE" constraintName="PK_TYPE_ESPECE"/>
+
+        <createTable tableName="LIEU" remarks="Table décrivant le lieu">
+            <column name="ID_LIEU" type="NUMBER(8, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LIEU" type="VARCHAR(50)"/>
+        </createTable>
+
+        <createIndex tableName="LIEU" indexName="IDX_PK_LIEU" unique="true">
+            <column name="ID_LIEU"/>
+        </createIndex>
+        <addPrimaryKey tableName="LIEU" columnNames="ID_LIEU" constraintName="PK_LIEU"/>
+
+        <createTable tableName="RARETE">
+            <column name="ID_RARETE" type="NUMBER(8, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RARETE" type="VARCHAR(50)"/>
+        </createTable>
+
+        <createIndex tableName="RARETE" indexName="IDX_PK_RARETE" unique="true">
+            <column name="ID_RARETE"/>
+        </createIndex>
+        <addPrimaryKey tableName="RARETE" columnNames="ID_RARETE" constraintName="PK_RARETE"/>
+
+        <createTable tableName="ESPECE">
+            <column name="ID_ESPECE" type="NUMBER(8, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NOM" type="VARCHAR(50)"/>
+            <column name="PERIODE_DEBUT" type="NUMBER(3, 0)"/>
+            <column name="PERIODE_FIN" type="NUMBER(3, 0)"/>
+            <column name="HEURE_DEBUT" type="NUMBER(3, 0)"/>
+            <column name="HEURE_FIN" type="NUMBER(3, 0)"/>
+            <column name="PRIX" type="NUMBER(8, 0)"/>
+            <column name="ID_LIEU" type="NUMBER(8, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_RARETE" type="NUMBER(8, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_TYPE_ESPECE" type="NUMBER(8, 0)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createIndex tableName="ESPECE" indexName="IDX_PK_ESPECE" unique="true">
+            <column name="ID_ESPECE"/>
+        </createIndex>
+        <addPrimaryKey tableName="ESPECE" columnNames="ID_ESPECE" constraintName="PK_ESPECE"/>
+    </changeSet>
+
+    <!-- Création de clés étrangères/séquences/indexes -->
+    <changeSet id="2" author="alexis">
+
+        <createIndex indexName="IDX_FK_LIEU"
+                     tableName="ESPECE">
+            <column name="ID_LIEU"/>
+        </createIndex>
+
+        <createIndex indexName="IDX_FK_TYPE_ESPECE"
+                     tableName="ESPECE">
+            <column name="ID_TYPE_ESPECE"/>
+        </createIndex>
+
+        <createIndex indexName="IDX_FK_RARETE"
+                     tableName="ESPECE">
+            <column name="ID_RARETE"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="ID_LIEU"
+                                 baseTableName="ESPECE"
+                                 constraintName="FK_ESPECE_LIEU"
+                                 onDelete="RESTRICT"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ID_LIEU"
+                                 referencedTableName="LIEU"/>
+
+        <addForeignKeyConstraint baseColumnNames="ID_RARETE"
+                                 baseTableName="ESPECE"
+                                 constraintName="FK_ESPECE_RARETE"
+                                 onDelete="RESTRICT"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ID_RARETE"
+                                 referencedTableName="RARETE"/>
+
+        <addForeignKeyConstraint baseColumnNames="ID_TYPE_ESPECE"
+                                 baseTableName="ESPECE"
+                                 constraintName="FK_ESPECE_TYPE_ESP"
+                                 onDelete="RESTRICT"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ID_TYPE_ESPECE"
+                                 referencedTableName="TYPE_ESPECE"/>
+
+        <createSequence sequenceName="SEQ_ESP" cacheSize="0" cycle="false"
+                        incrementBy="1" maxValue="99999999999" minValue="1"
+                        ordered="false" startValue="173"/>
+
+        <createSequence sequenceName="SEQ_RARETE" cacheSize="0" cycle="false"
+                        incrementBy="1" maxValue="99999999999" minValue="1"
+                        ordered="false" startValue="4"/>
+
+        <createSequence sequenceName="SEQ_LIEU" cacheSize="0" cycle="false"
+                        incrementBy="1" maxValue="99999999999" minValue="1"
+                        ordered="false" startValue="29"/>
+
+        <createSequence sequenceName="SEQ_TYPE_ESP" cacheSize="0" cycle="false"
+                        incrementBy="1" maxValue="99999999999" minValue="1"
+                        ordered="false" startValue="3"/>
+    </changeSet>
+
+    <!-- Chargement des données de la table RARETE -->
+    <changeSet id="3" author="alexis">
+        <loadData tableName="RARETE"
+                  separator=";"
+                  file="db/changelog/csv/RARETE_V01.csv">
+            <column name="ID_RARETE" type="numeric"/>
+            <column name="RARETE" type="string"/>
+        </loadData>
+    </changeSet>
+
+    <!-- Chargement des données de la table LIEU -->
+    <changeSet id="4" author="alexis">
+        <loadData tableName="LIEU"
+                  separator=";"
+                  file="db/changelog/csv/LIEU_V01.csv">
+            <column name="ID_LIEU" type="numeric"/>
+            <column name="LIEU" type="string"/>
+        </loadData>
+    </changeSet>
+
+    <!-- Chargement des données de la table TYPE_ESPECE -->
+    <changeSet id="5" author="alexis">
+        <loadData tableName="TYPE_ESPECE"
+                  separator=";"
+                  file="db/changelog/csv/TYPE_ESPECE_V01.csv">
+            <column name="ID_TYPE_ESPECE" type="numeric"/>
+            <column name="TYPE" type="string"/>
+        </loadData>
+    </changeSet>
+
+    <!-- Chargement des données de la table ESPECE -->
+    <changeSet id="6" author="alexis">
+        <loadData tableName="ESPECE"
+                  separator=";"
+                  file="db/changelog/csv/ESPECE_V01.csv">
+            <column name="ID_ESPECE" type="numeric"/>
+            <column name="NOM" type="string"/>
+            <column name="PERIODE_DEBUT" type="numeric"/>
+            <column name="PERIODE_FIN" type="numeric"/>
+            <column name="HEURE_DEBUT" type="numeric"/>
+            <column name="HEURE_FIN" type="numeric"/>
+            <column name="PRIX" type="numeric"/>
+            <column name="ID_LIEU" type="numeric"/>
+            <column name="ID_RARETE" type="numeric"/>
+            <column name="ID_TYPE_ESPECE" type="numeric"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>
