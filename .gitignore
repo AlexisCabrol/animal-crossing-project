@@ -30,3 +30,39 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+# NativeScript
+ac-mobile/hooks/
+ac-mobile/node_modules/
+ac-mobile/platforms/
+
+# NativeScript Template
+ac-mobile/*.js.map
+ac-mobile/*.js
+ac-mobile/webpack.config.js
+
+# Logs
+ac-mobile/logs
+*.log
+ac-mobile/npm-debug.log*
+ac-mobile/yarn-debug.log*
+ac-mobile/yarn-error.log*
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+.cloud
+ac-mobile/tmp/
+ac-mobile/typings/
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+
+ac-api/.mvn/*
