@@ -1,0 +1,18 @@
+<div class="row format-top">
+  <h2>{{ 'espece.titre' | translate : {'0': listeEspece.length, '1': typeEspece} }}</h2>
+</div>
+<div class="row">
+  <ng-container *ngFor="let esp of listeEspece">
+    <div class="col-sm-6">
+      <div class="card format-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ esp.nom }}</h5>
+          <img [src]="getPhotoUrl(esp)">
+          <p class="card-text">{{ 'espece.lieu' | translate : {'0': esp.lieu.lieu} }}</p>
+          <p class="card-text">{{ 'espece.prix' | translate : {'0': esp.prix} }}</p>
+          <span class="badge badge-pill" [ngClass]="getRareteCouleur(esp.rarete)">{{ esp.rarete.rarete }}</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

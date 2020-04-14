@@ -1,0 +1,28 @@
+{
+  "espece": {
+    "titre": "Sur l'île principale, il y a actuellement {{0}} {{1}}",
+    "prix": "Prix : {{0}} clochettes",
+    "lieu": "Lieu : {{0}}"
+  },
+  "menu": {
+    "poisson": "Poissons",
+    "insecte": "Insectes",
+    "accueil": "Accueil"
+  },
+  "mois": {
+    "periode": "{{0}} - {{1}}",
+    "tt-annee": "Toute l'année",
+    "1": "Janvier",
+    "2": "Février",
+    "3": "Mars",
+    "4": "Avril",
+    "5": "Mai",
+    "6": "Juin",
+    "7": "Juillet",
+    "8": "Août",
+    "9": "Septembre",
+    "10": "Octobre",
+    "11": "Novembre",
+    "12": "Décembre"
+  }
+}

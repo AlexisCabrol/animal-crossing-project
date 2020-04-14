@@ -1,11 +1,11 @@
-ID_LIEU;LIEU
-1;Océan
-2;Rivière
-3;Océan (ponton)
-4;Étang
-5;Océan (pluie/neige/appât)
-6;Rivière (falaise)
-7;Embouchure de rivière
+ï»¿ID_LIEU;LIEU
+1;OcÃ©an
+2;RiviÃ¨re
+3;OcÃ©an (ponton)
+4;Ã‰tang
+5;OcÃ©an (pluie/neige/appÃ¢t)
+6;RiviÃ¨re (falaise)
+7;Embouchure de riviÃ¨re
 8;Sol
 9;Ciel
 10;Arbres
@@ -20,10 +20,10 @@ ID_LIEU;LIEU
 19;Navets pourris
 20;Plage (rochers)
 21;Palmiers
-22;Près de l'eau
+22;PrÃ¨s de l'eau
 23;Fleurs blanches
-24;Déchets et navets pourris
+24;DÃ©chets et navets pourris
 25;Ciel (fleurs hybrides noires, violettes et bleues)
-26;Lumières
+26;LumiÃ¨res
 27;Villageois
 28;Sous la terre
