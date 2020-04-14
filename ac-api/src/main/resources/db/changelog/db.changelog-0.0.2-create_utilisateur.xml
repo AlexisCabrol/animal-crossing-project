@@ -14,7 +14,7 @@
             <column name="IDENTIFIANT" type="VARCHAR(50)">
                 <constraints nullable="false" unique="true"/>
             </column>
-            <column name="MOTDEPASSE" type="VARCHAR(50)"/>
+            <column name="MOTDEPASSE" type="VARCHAR(500)"/>
         </createTable>
 
         <createIndex tableName="UTILISATEUR" indexName="IDX_PK_UTILISATEUR" unique="true">

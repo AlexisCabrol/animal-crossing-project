@@ -2,11 +2,13 @@
   <h1>{{ 'account.titre' | translate }}</h1><br>
   <div class="form-group">
     <label for="pseudo">{{ 'account.id' | translate }}</label>
-    <input type="pseudo" class="form-control" id="pseudo" placeholder="{{ 'account.id-label' | translate }}">
+    <input type="pseudo" class="form-control" id="pseudo" [(ngModel)]="utilisateur.identifiant"
+           placeholder="{{ 'account.id-label' | translate }}">
   </div>
   <div class="form-group">
     <label for="password">{{ 'account.password' | translate }}</label>
-    <input type="password" class="form-control" id="password" placeholder="{{ 'account.password-label' | translate }}">
+    <input type="password" class="form-control" id="password" [(ngModel)]="utilisateur.motDePasse"
+           placeholder="{{ 'account.password-label' | translate }}">
   </div>
-  <button type="submit" class="btn btn-primary">{{ 'account.se-connecter' | translate }}</button>
+  <button (click)="lancerIdentification()" class="btn btn-primary">{{ 'account.se-connecter' | translate }}</button>
 </div>

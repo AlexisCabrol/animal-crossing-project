@@ -15,7 +15,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
@@ -38,9 +37,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             creds.getIdentifiant(),
-                            creds.getMotDePasse(),
-                            new ArrayList<>())
-            );
+                            creds.getMotDePasse()));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
