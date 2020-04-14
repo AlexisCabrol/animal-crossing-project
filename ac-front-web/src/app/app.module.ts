@@ -11,6 +11,8 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import { MenuComponent } from './menu/menu.component';
 import { InsecteComponent } from './insecte/insecte.component';
 import { ListeEspComponent } from './poisson/liste-esp/liste-esp.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ListeEspComponent } from './poisson/liste-esp/liste-esp.component';
     PoissonComponent,
     MenuComponent,
     InsecteComponent,
-    ListeEspComponent
+    ListeEspComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

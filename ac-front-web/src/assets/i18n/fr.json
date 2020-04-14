@@ -9,7 +9,21 @@
   "menu": {
     "poisson": "Poissons",
     "insecte": "Insectes",
-    "accueil": "Accueil"
+    "accueil": "Accueil",
+    "login": "Me connecter",
+    "register": "S'inscrire"
+  },
+  "account": {
+    "titre": "Identifiez-vous",
+    "id": "Identifiant",
+    "id-label": "Votre identifiant de connexion",
+    "password": "Mot de passe",
+    "password-conf": "Confirmation mot de passe",
+    "password-conf-label": "Confirmer votre mot de passe",
+    "password-label": "Votre mot de passe",
+    "se-connecter": "Se connecter",
+    "inscription": "N'attendez plus, inscrivez-vous !",
+    "inscrire": "S'inscrire"
   },
   "mois": {
     "periode": "Période : {{0}} - {{1}}",
