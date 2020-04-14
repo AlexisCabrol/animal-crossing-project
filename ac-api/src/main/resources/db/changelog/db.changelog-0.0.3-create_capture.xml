@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Création de la table UTILISATEUR -->
+    <changeSet author="alexis" id="1">
+        <createTable tableName="CAPTURE" remarks="Table regroupant les captures d'espèces">
+            <column name="ID_CAPTURE" type="NUMBER(8, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_UTILISATEUR" type="NUMBER(8, 0)"/>
+            <column name="ID_ESPECE" type="NUMBER(8, 0)"/>
+        </createTable>
+
+        <createIndex tableName="CAPTURE" indexName="IDX_PK_CAPTURE" unique="true">
+            <column name="ID_CAPTURE"/>
+        </createIndex>
+        <addPrimaryKey tableName="CAPTURE" columnNames="ID_CAPTURE" constraintName="PK_UTILISATEUR"/>
+        <createSequence sequenceName="SEQ_CAPTURE" cacheSize="0" cycle="false"
+                        incrementBy="1" maxValue="99999999999" minValue="0"
+                        ordered="false" startValue="0"/>
+
+        <createIndex indexName="IDX_CAPTURE_ESPECE"
+                     tableName="CAPTURE">
+            <column name="ID_ESPECE"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="ID_ESPECE"
+                                 baseTableName="CAPTURE"
+                                 constraintName="FK_CAPTURE_ESPECE"
+                                 onDelete="RESTRICT"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ID_ESPECE"
+                                 referencedTableName="ESPECE"/>
+
+        <createIndex indexName="IDX_CAPTURE_UTILISATEUR"
+                     tableName="CAPTURE">
+            <column name="ID_UTILISATEUR"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="ID_UTILISATEUR"
+                                 baseTableName="CAPTURE"
+                                 constraintName="FK_CAPTURE_UTILISATEUR"
+                                 onDelete="RESTRICT"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="ID_UTILISATEUR"
+                                 referencedTableName="UTILISATEUR"/>
+    </changeSet>
+</databaseChangeLog>
