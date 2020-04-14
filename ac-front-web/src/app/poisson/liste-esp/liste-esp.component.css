@@ -1,3 +1,11 @@
+.card-container {
+  font-size: smaller;
+}
+
 .format-top {
   margin-top: 10px;
+}
+
+img {
+  width: 100px;
 }

@@ -3,15 +3,21 @@
 </div>
 <div class="row">
   <ng-container *ngFor="let esp of listeEspece">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
       <div class="card format-top">
         <div class="card-body">
           <h5 class="card-title">{{ esp.nom }}</h5>
-          <img [src]="getPhotoUrl(esp)">
-          <p class="card-text">{{ getMoisLabel(esp) }}</p>
-          <p class="card-text">{{ getHeureLabel(esp) }}</p>
-          <p class="card-text">{{ 'espece.lieu' | translate : {'0': esp.lieu.lieu} }}</p>
-          <p class="card-text">{{ 'espece.prix' | translate : {'0': esp.prix} }}</p>
+          <div class="row">
+            <div class="col-sm-8">
+              <p class="card-container">{{ getMoisLabel(esp) }}<br>
+                {{ getHeureLabel(esp) }}<br>
+                {{ 'espece.lieu' | translate : {'0': esp.lieu.lieu} }}<br>
+                {{ 'espece.prix' | translate : {'0': esp.prix} }}<br></p>
+            </div>
+            <div class="col-sm-4">
+              <img [src]="getPhotoUrl(esp)">
+            </div>
+          </div>
           <span class="badge badge-pill" [ngClass]="getRareteCouleur(esp.rarete)">{{ esp.rarete.rarete }}</span>
         </div>
       </div>
