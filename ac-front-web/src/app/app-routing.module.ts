@@ -5,12 +5,13 @@ import {InsecteComponent} from "./insecte/insecte.component";
 import {AccueilComponent} from "./accueil/accueil.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
+import {AuthGuardService} from "./services/auth-guard.service";
 
 
 const routes: Routes = [{path: '', redirectTo: '/accueil', pathMatch: 'full'},
   {path: 'accueil', component: AccueilComponent},
-  {path: 'poissons', component: PoissonComponent},
-  {path: 'insectes', component: InsecteComponent},
+  {path: 'poissons', canActivate: [AuthGuardService], component: PoissonComponent},
+  {path: 'insectes', canActivate: [AuthGuardService], component: InsecteComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent}];
 

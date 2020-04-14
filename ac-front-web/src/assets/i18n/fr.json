@@ -11,7 +11,8 @@
     "insecte": "Insectes",
     "accueil": "Accueil",
     "login": "Me connecter",
-    "register": "S'inscrire"
+    "register": "S'inscrire",
+    "logout": "Se deconnecter"
   },
   "account": {
     "titre": "Identifiez-vous",

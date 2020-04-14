@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AccueilComponent} from './accueil/accueil.component';
 import {PoissonComponent} from './poisson/poisson.component';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {MenuComponent} from './menu/menu.component';
@@ -14,6 +14,7 @@ import {ListeEspComponent} from './poisson/liste-esp/liste-esp.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {FormsModule} from "@angular/forms";
+import {AuthenticationInterceptor} from "./services/authentication.interceptor";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,11 @@ import {FormsModule} from "@angular/forms";
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthenticationInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

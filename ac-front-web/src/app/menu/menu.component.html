@@ -10,17 +10,20 @@
           <span class="sr-only">(current)</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authenticationService.getConnecter()">
         <a class="nav-link" routerLink="/poissons" routerLinkActive="active">{{ 'menu.poisson' | translate}}</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authenticationService.getConnecter()">
         <a class="nav-link" routerLink="/insectes" routerLinkActive="active">{{ 'menu.insecte' | translate}}</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!authenticationService.getConnecter()">
         <a class="nav-link" routerLink="/login" routerLinkActive="active">{{ 'menu.login' | translate}}</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!authenticationService.getConnecter()">
         <a class="nav-link" routerLink="/register" routerLinkActive="active">{{ 'menu.register' | translate}}</a>
+      </li>
+      <li class="nav-item" *ngIf="authenticationService.getConnecter()">
+        <a class="nav-link" (click)="authenticationService.logout()">{{ 'menu.logout' | translate}}</a>
       </li>
     </ul>
   </div>

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Utilisateur} from "../models/Utilisateur";
-import {UtilisateurService} from "../services/utilisateur.service";
+import {AuthenticationService} from "../services/authentication.service";
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   public utilisateur: Utilisateur;
 
-  constructor(private utilisateurService: UtilisateurService) {
+  constructor(private authenticationService: AuthenticationService) {
   }
 
   ngOnInit(): void {
@@ -20,9 +20,7 @@ export class LoginComponent implements OnInit {
 
   public lancerIdentification(): void {
     // TODO : faire les contrôles de saisie
-    this.utilisateurService.identification(this.utilisateur).subscribe(() => {
-      console.log("coucou");
-    });
+    this.authenticationService.login(this.utilisateur);
   }
 
 }

@@ -53,6 +53,11 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .withSubject(((User) auth.getPrincipal()).getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .sign(HMAC512(SECRET.getBytes()));
+        res.addHeader("Content-Type", "application/json");
         res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(TOKEN_PREFIX + token);
+        res.getWriter().write(json);
+        res.flushBuffer();
     }
 }
