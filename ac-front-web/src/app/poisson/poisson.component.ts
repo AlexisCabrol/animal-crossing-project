@@ -20,10 +20,17 @@ export class PoissonComponent implements OnInit {
     this.especeService.getPoissons().subscribe((liste: Espece[]) => {
       const moisCourant = new Date().getMonth() + 1;
       const heureCourante = new Date().getHours() + 1;
-      this.listeEspece = liste.filter((espece: Espece) => espece.periodeFin >= moisCourant
-        && espece.periodeDebut <= moisCourant
-        && espece.heureDebut <= heureCourante
-        && espece.heureFin >= heureCourante);
+
+      this.listeEspece = liste.filter((espece: Espece) => {
+        if (espece.periodeFin >= moisCourant && espece.periodeDebut <= moisCourant) {
+          return espece.heureDebut <= heureCourante && espece.heureFin >= heureCourante;
+        } else if (espece.periodeDebut > espece.periodeFin) {
+          if ((espece.periodeDebut >= moisCourant && espece.periodeDebut <= 12)
+            && (espece.periodeFin >= moisCourant && 1 <= espece.periodeFin)) {
+            return espece.heureDebut <= heureCourante && espece.heureFin >= heureCourante;
+          }
+        }
+      });
     });
   }
 

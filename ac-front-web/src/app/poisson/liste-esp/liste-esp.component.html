@@ -8,6 +8,8 @@
         <div class="card-body">
           <h5 class="card-title">{{ esp.nom }}</h5>
           <img [src]="getPhotoUrl(esp)">
+          <p class="card-text">{{ getMoisLabel(esp) }}</p>
+          <p class="card-text">{{ getHeureLabel(esp) }}</p>
           <p class="card-text">{{ 'espece.lieu' | translate : {'0': esp.lieu.lieu} }}</p>
           <p class="card-text">{{ 'espece.prix' | translate : {'0': esp.prix} }}</p>
           <span class="badge badge-pill" [ngClass]="getRareteCouleur(esp.rarete)">{{ esp.rarete.rarete }}</span>
