@@ -6,10 +6,17 @@
     <div class="col-sm-4">
       <div class="card format-top">
         <div class="card-body">
-          <h5 class="card-title">{{ esp.nom }}</h5>
+          <div class="row">
+            <div class="col-sm-10">
+              <h5 class="card-title">{{ esp.nom }}</h5>
+            </div>
+            <div class="col-sm-2">
+              <img class="icon-manage" src="../../../assets/icons/add.png">
+            </div>
+          </div>
           <div class="row">
             <div class="col-sm-4">
-              <img [src]="getPhotoUrl(esp)">
+              <img class="icon-esp" [src]="getPhotoUrl(esp)">
             </div>
             <div class="col-sm-8">
               <p class="card-container">{{ getMoisLabel(esp) }}<br>

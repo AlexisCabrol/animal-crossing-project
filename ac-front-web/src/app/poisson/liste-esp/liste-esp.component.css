@@ -6,6 +6,10 @@
   margin-top: 10px;
 }
 
-img {
+.icon-esp {
   width: 75px;
+}
+
+.icon-manage {
+  width: 20px;
 }
