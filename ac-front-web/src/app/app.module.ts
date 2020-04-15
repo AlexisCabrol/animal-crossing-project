@@ -17,6 +17,7 @@ import {AuthenticationInterceptor} from "./services/authentication.interceptor";
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ProfilComponent } from './profil/profil.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProfilComponent } from './profil/profil.component';
     ListeEspComponent,
     LoginComponent,
     RegisterComponent,
-    ProfilComponent
+    ProfilComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserAnimationsModule,

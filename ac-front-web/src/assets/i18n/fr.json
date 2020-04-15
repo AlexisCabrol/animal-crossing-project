@@ -49,7 +49,8 @@
       "email": "Votre adresse mail doit être une adresse valide",
       "req-email": "La saisie d'une adresse mail est requise"
     },
-    "login": "Identifiant/Mot de passe incorrect"
+    "login": "Identifiant/Mot de passe incorrect",
+    "404": "La page demandée n'existe pas, êtes-vous perdu ?"
   },
   "success": {
     "register": "Vous êtes bien inscrit !",

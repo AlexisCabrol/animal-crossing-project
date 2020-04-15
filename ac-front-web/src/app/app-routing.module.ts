@@ -7,6 +7,7 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {AuthGuardService} from "./services/auth-guard.service";
 import {ProfilComponent} from "./profil/profil.component";
+import {NotfoundComponent} from "./notfound/notfound.component";
 
 
 const routes: Routes = [{path: '', redirectTo: '/accueil', pathMatch: 'full'},
@@ -15,6 +16,8 @@ const routes: Routes = [{path: '', redirectTo: '/accueil', pathMatch: 'full'},
   {path: 'insectes', canActivate: [AuthGuardService], component: InsecteComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profil', canActivate: [AuthGuardService], component: ProfilComponent},
+  {path: '**', redirectTo: 'not-found'},
+  {path: 'not-found', component: NotfoundComponent},
   {path: 'register', component: RegisterComponent}];
 
 @NgModule({
