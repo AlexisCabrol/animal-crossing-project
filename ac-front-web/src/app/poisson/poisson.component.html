@@ -1,5 +1,7 @@
 <div class="container main-background">
   <app-liste-esp
     [listeEspece]="listeEspece"
-    [typeEspece]="TypeEspeceEnum.POISSONS"></app-liste-esp>
+    [typeEspece]="TypeEspeceEnum.POISSONS"
+    [listeEspeceCapture]="listeEspeceCapture"
+    (outputMettreAJourListeEspeceCapture)="mettreAJourListeEspeceCapture($event)"></app-liste-esp>
 </div>

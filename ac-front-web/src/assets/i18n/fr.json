@@ -7,7 +7,8 @@
     "tt-journee": "Disponibilité : Toute la journée",
     "filter": {
       "nord": "Hémisphère nord",
-      "sud": "Hémisphère sud"
+      "sud": "Hémisphère sud",
+      "have": "Afficher uniquement ceux que je n'ai pas capturé"
     }
   },
   "menu": {
@@ -41,7 +42,9 @@
     "login": "Identifiant/Mot de passe incorrect"
   },
   "success": {
-    "register": "Vous êtes bien inscrit !"
+    "register": "Vous êtes bien inscrit !",
+    "capture.add": "Ajout de l'espèce dans vos espèces capturées",
+    "capture.delete": "Suppression de l'espèce de vos espèces capturées"
   },
   "mois": {
     "periode": "Période : {{0}} - {{1}}",

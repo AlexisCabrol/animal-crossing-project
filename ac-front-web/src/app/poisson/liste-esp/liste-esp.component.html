@@ -8,6 +8,11 @@
   <button type="button"
           [ngClass]="this.hemisphereSelectione === Hemisphere.SUD ? 'btn btn-primary filter' : 'btn btn-outline-primary filter'"
           (click)="this.changeHemisphere(Hemisphere.SUD)">{{ 'espece.filter.sud' | translate }}</button>
+  <button type="button"
+          [ngClass]="this.listeEspeceSansFiltre.length === 0 ? 'btn btn-outline-primary filter' : 'btn btn-primary filter'"
+          (click)="this.filtrerSurLesEspCapture()">
+    <img style="max-width: 25px;" src="../../../assets/icons/fish.png"/>
+  </button>
 </div>
 <div class="row format-top">
   <ng-container *ngFor="let esp of listeEspece">
@@ -19,7 +24,9 @@
               <h5 class="card-title">{{ esp.nom }}</h5>
             </div>
             <div class="col-sm-2">
-              <img class="icon-manage" src="../../../assets/icons/add.png" (click)="captureEspece(esp)">
+              <img class="icon-manage"
+                   [src]="this.listeEspeceCapture.includes(esp.id) ? '../../../assets/icons/delete.png' : '../../../assets/icons/add.png'"
+                   (click)="captureEspece(esp)"/>
             </div>
           </div>
           <div class="row">

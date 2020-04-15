@@ -1,4 +1,3 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -15,6 +14,8 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthenticationInterceptor} from "./services/authentication.interceptor";
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import {AuthenticationInterceptor} from "./services/authentication.interceptor";
     RegisterComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
 
     // ngx-translate and the loader module
     HttpClientModule,
@@ -41,7 +42,8 @@ import {AuthenticationInterceptor} from "./services/authentication.interceptor";
     }),
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

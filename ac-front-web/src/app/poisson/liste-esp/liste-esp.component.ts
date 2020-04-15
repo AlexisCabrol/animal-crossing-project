@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {TypeEspeceEnum} from "../../models/enums/TypeEspeceEnum";
 import {Espece} from "../../models/Espece";
 import {Rarete} from "../../models/Rarete";
@@ -6,6 +6,7 @@ import {RareteEnum} from "../../models/enums/RareteEnum";
 import {TranslateService} from "@ngx-translate/core";
 import {CaptureService} from "../../services/capture.service";
 import {Hemisphere} from "../../models/enums/HemisphereEnum";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-liste-esp',
@@ -16,20 +17,44 @@ export class ListeEspComponent implements OnInit, OnChanges {
 
   @Input() typeEspece: TypeEspeceEnum;
   @Input() listeEspece: Espece[];
-  listeFiltre: Espece[];
+  @Input() listeEspeceCapture: number[];
+  @Output() outputMettreAJourListeEspeceCapture: EventEmitter<number[]> = new EventEmitter();
+  listeEspeceSansFiltre: Espece[] = [];
 
+  filtrageSurEspeceCaptureActive: boolean = false;
   hemisphereSelectione = Hemisphere.NORD;
   Hemisphere = Hemisphere;
 
   constructor(private translateService: TranslateService,
-              private captureService: CaptureService) {
+              private captureService: CaptureService,
+              private toastService: ToastrService) {
   }
 
   ngOnInit(): void {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.updateLabelPeriode();
+    if (changes.listeEspece) {
+      this.updateLabelPeriode();
+    }
+    if (changes.listeEspeceCapture) {
+      if (this.filtrageSurEspeceCaptureActive) {
+        this.listeEspece = this.listeEspece.filter((espece: Espece) => !this.listeEspeceCapture.includes(espece.id));
+      }
+    }
+  }
+
+  public filtrerSurLesEspCapture(): void {
+    if (this.listeEspeceSansFiltre.length === 0) {
+      this.listeEspeceSansFiltre = this.listeEspece;
+      // On filtre sur les espèces qui ne sont pas encore capturée
+      this.listeEspece = this.listeEspece.filter((espece: Espece) => !this.listeEspeceCapture.includes(espece.id));
+      this.filtrageSurEspeceCaptureActive = true;
+    } else {
+      this.listeEspece = this.listeEspeceSansFiltre;
+      this.listeEspeceSansFiltre = [];
+      this.filtrageSurEspeceCaptureActive = false;
+    }
   }
 
   public changeHemisphere(nouvelHemisphere: Hemisphere): void {
@@ -97,7 +122,26 @@ export class ListeEspComponent implements OnInit, OnChanges {
   }
 
   public captureEspece(espece: Espece): void {
-    this.captureService.capturerEspece(espece.id).subscribe((res) => console.log("ajouter"));
+    if (this.listeEspeceCapture.includes(espece.id)) {
+      // Si l'espèce est présente dans la liste : on supprime la capture
+      this.captureService.supprimerEspeceCapture(espece.id)
+        .subscribe((liste: number[]) => {
+          this.translateService.get('success.capture.delete').subscribe((texte: string) => {
+            this.toastService.success(texte, null, {timeOut: 2000});
+            this.outputMettreAJourListeEspeceCapture.emit(liste);
+          })
+        });
+    } else {
+      // Si l'espèce n'est pas dans la liste : on capture
+      this.captureService.capturerEspece(espece.id)
+        .subscribe((liste: number[]) => {
+          this.translateService.get('success.capture.add').subscribe((texte: string) => {
+            this.toastService.success(texte, null, {timeOut: 2000});
+            this.outputMettreAJourListeEspeceCapture.emit(liste)
+          });
+        });
+
+    }
   }
 
 }
