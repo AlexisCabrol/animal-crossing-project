@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   public lancerIdentification(): void {
     this.message = null;
-    this.utilisateur.motDePasse = Hash.sha512().update(this.utilisateur.motDePasse).digest('hex');
+    this.utilisateur.motDePasse = Hash.sha512().update(this.utilisateur.frontMotDePasse).digest('hex');
     this.authenticationService.login(this.utilisateur);
   }
 

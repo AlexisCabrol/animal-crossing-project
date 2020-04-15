@@ -20,6 +20,7 @@ export class AuthenticationService {
   }
 
   public login(utilisateur: Utilisateur) {
+    delete utilisateur.frontMotDePasse;
     return this.http.post('http://localhost:8080/login', utilisateur)
       .subscribe((res: Utilisateur) => {
 

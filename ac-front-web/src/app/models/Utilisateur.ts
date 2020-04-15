@@ -9,4 +9,6 @@ export class Utilisateur extends JSONBuilder {
   discord: string;
   codeAmiNintendo: string;
   tokenJWT: string;
+
+  frontMotDePasse: string;
 }

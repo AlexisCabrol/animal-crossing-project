@@ -53,12 +53,12 @@ export class RegisterComponent implements OnInit {
 
     const utilisateur = new Utilisateur();
     utilisateur.identifiant = this.registerForm.value['identifiant'];
-    utilisateur.motDePasse = this.registerForm.value['motDePasse'];
+    utilisateur.frontMotDePasse = this.registerForm.value['motDePasse'];
     utilisateur.email = this.registerForm.value['email'];
     utilisateur.discord = this.registerForm.value['discord'];
     utilisateur.codeAmiNintendo = this.registerForm.value['codeAmiNintendo'];
 
-    utilisateur.motDePasse = Hash.sha512().update(utilisateur.motDePasse).digest('hex');
+    utilisateur.motDePasse = Hash.sha512().update(utilisateur.frontMotDePasse).digest('hex');
     this.utilisateurService.inscrire(utilisateur).subscribe(() => {
       this.messageHandlerService.setMessageHandler('success.register');
       this.router.navigate(['login']);

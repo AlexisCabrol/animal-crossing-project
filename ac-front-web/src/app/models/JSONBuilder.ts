@@ -11,4 +11,8 @@ export abstract class JSONBuilder {
   static toJson<T>(objet: T): any {
     return Object.assign({}, objet);
   }
+
+  toJson(): any {
+    return JSONBuilder.toJson(this);
+  }
 }
