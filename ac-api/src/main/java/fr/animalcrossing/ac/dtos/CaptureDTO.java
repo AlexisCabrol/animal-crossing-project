@@ -15,5 +15,5 @@ public class CaptureDTO implements Serializable {
 
     private Integer id;
     private Integer idUtilisateur;
-    private EspeceDTO espece;
+    private Integer idEspece;
 }

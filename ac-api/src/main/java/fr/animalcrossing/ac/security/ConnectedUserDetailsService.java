@@ -29,4 +29,10 @@ public class ConnectedUserDetailsService implements UserDetailsService {
         }
         return new User(utilisateurCourant.getIdentifiant(), utilisateurCourant.getMotDePasse(), Collections.emptyList());
     }
+
+    public Utilisateur getUtilisateurCourant() {
+        // On récupère l'identifiant de l'utilisateur connecté pour le retourner
+        String identifiant = SecurityUtils.getUsername();
+        return utilisateurRepository.findByIdentifiant(identifiant);
+    }
 }

@@ -26,6 +26,19 @@
     "inscription": "N'attendez plus, inscrivez-vous !",
     "inscrire": "S'inscrire"
   },
+  "error": {
+    "register": {
+      "id": "La saisie d'un identifiant est requis",
+      "password": "La saisie d'un mot de passe est requis",
+      "confPassword": "La saisie de la confirmation du mot de passe est requis",
+      "passwordMustMatch": "Le mot de passe et la confirmation doit être identique",
+      "password-minlength": "Votre mot de passe doit faire plus de 7 caractères"
+    },
+    "login": "Identifiant/Mot de passe incorrect"
+  },
+  "success": {
+    "register": "Vous êtes bien inscrit !"
+  },
   "mois": {
     "periode": "Période : {{0}} - {{1}}",
     "tt-annee": "Période : Toute l'année"

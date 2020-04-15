@@ -14,6 +14,7 @@ import java.io.Serializable;
 @Table(name = "ESPECE")
 public class Espece implements Serializable {
 
+    private static final long serialVersionUID = -893756876368620907L;
     @Id
     @SequenceGenerator(name = "SEQ_ESP", sequenceName = "SEQ_ESP", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ESP")
@@ -23,11 +24,17 @@ public class Espece implements Serializable {
     @Column(name = "NOM")
     private String nom;
 
-    @Column(name = "PERIODE_DEBUT")
-    private Integer periodeDebut;
+    @Column(name = "PERIODE_DEBUT_NORD")
+    private Integer periodeDebutNord;
 
-    @Column(name = "PERIODE_FIN")
-    private Integer periodeFin;
+    @Column(name = "PERIODE_FIN_NORD")
+    private Integer periodeFinNord;
+
+    @Column(name = "PERIODE_DEBUT_SUD")
+    private Integer periodeDebutSud;
+
+    @Column(name = "PERIODE_FIN_SUD")
+    private Integer periodeFinSud;
 
     @Column(name = "HEURE_DEBUT")
     private Integer heureDebut;

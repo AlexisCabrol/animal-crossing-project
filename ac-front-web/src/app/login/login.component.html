@@ -1,4 +1,7 @@
 <div class="container main-background">
+  <div class="alert alert-success" role="alert" *ngIf="message">
+    {{ message | translate }}
+  </div>
   <h1>{{ 'account.titre' | translate }}</h1><br>
   <div class="form-group">
     <label for="pseudo">{{ 'account.id' | translate }}</label>

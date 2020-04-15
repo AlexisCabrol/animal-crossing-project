@@ -13,7 +13,7 @@ import {InsecteComponent} from './insecte/insecte.component';
 import {ListeEspComponent} from './poisson/liste-esp/liste-esp.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthenticationInterceptor} from "./services/authentication.interceptor";
 
 @NgModule({
@@ -40,6 +40,7 @@ import {AuthenticationInterceptor} from "./services/authentication.interceptor";
       }
     }),
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   providers: [{

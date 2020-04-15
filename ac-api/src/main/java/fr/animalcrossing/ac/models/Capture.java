@@ -21,11 +21,9 @@ public class Capture implements Serializable {
     @Column(name = "ID_CAPTURE")
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_ESPECE")
-    private Espece espece;
+    @Column(name = "ID_ESPECE")
+    private Integer idEspece;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_UTILISATEUR")
-    private Utilisateur utilisateur;
+    @Column(name = "ID_UTILISATEUR")
+    private Integer idUtilisateur;
 }

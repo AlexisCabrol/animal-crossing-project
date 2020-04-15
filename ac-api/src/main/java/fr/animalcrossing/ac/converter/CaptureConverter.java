@@ -7,17 +7,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class CaptureConverter {
 
-    private final EspeceConverter especeConverter;
-
-    public CaptureConverter(final EspeceConverter especeConverter) {
-        this.especeConverter = especeConverter;
+    public CaptureConverter() {
     }
 
     public CaptureDTO toCaptureDTO(final Capture capture) {
         return CaptureDTO.builder()
                 .id(capture.getId())
-                .espece(especeConverter.toEspeceDTO(capture.getEspece()))
-                .idUtilisateur(capture.getUtilisateur().getId())
+                .idEspece(capture.getIdEspece())
+                .idUtilisateur(capture.getIdUtilisateur())
                 .build();
     }
 

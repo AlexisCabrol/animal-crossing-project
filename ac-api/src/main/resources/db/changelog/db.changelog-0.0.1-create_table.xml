@@ -48,8 +48,10 @@
                 <constraints nullable="false"/>
             </column>
             <column name="NOM" type="VARCHAR(50)"/>
-            <column name="PERIODE_DEBUT" type="NUMBER(3, 0)"/>
-            <column name="PERIODE_FIN" type="NUMBER(3, 0)"/>
+            <column name="PERIODE_DEBUT_NORD" type="NUMBER(3, 0)"/>
+            <column name="PERIODE_FIN_NORD" type="NUMBER(3, 0)"/>
+            <column name="PERIODE_DEBUT_SUD" type="NUMBER(3, 0)"/>
+            <column name="PERIODE_FIN_SUD" type="NUMBER(3, 0)"/>
             <column name="HEURE_DEBUT" type="NUMBER(3, 0)"/>
             <column name="HEURE_FIN" type="NUMBER(3, 0)"/>
             <column name="PRIX" type="NUMBER(8, 0)"/>

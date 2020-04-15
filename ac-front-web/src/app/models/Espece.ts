@@ -7,8 +7,10 @@ export class Espece extends JSONBuilder {
 
   id: number;
   nom: string;
-  periodeDebut: number;
-  periodeFin: number;
+  periodeDebutNord: number;
+  periodeFinNord: number;
+  periodeDebutSud: number;
+  periodeFinSud: number;
   heureDebut: number;
   heureFin: number;
   prix: number;

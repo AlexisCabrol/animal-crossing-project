@@ -22,11 +22,11 @@ export class PoissonComponent implements OnInit {
       const heureCourante = new Date().getHours() + 1;
 
       this.listeEspece = liste.filter((espece: Espece) => {
-        if (espece.periodeFin >= moisCourant && espece.periodeDebut <= moisCourant) {
+        if (espece.periodeFinNord >= moisCourant && espece.periodeDebutNord <= moisCourant) {
           return espece.heureDebut <= heureCourante && espece.heureFin >= heureCourante;
-        } else if (espece.periodeDebut > espece.periodeFin) {
-          if ((espece.periodeDebut >= moisCourant && espece.periodeDebut <= 12)
-            && (espece.periodeFin >= moisCourant && 1 <= espece.periodeFin)) {
+        } else if (espece.periodeDebutNord > espece.periodeFinNord) {
+          if ((espece.periodeDebutNord >= moisCourant && espece.periodeDebutNord <= 12)
+            && (espece.periodeFinNord >= moisCourant && 1 <= espece.periodeFinNord)) {
             return espece.heureDebut <= heureCourante && espece.heureFin >= heureCourante;
           }
         }

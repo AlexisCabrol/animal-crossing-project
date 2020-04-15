@@ -4,6 +4,7 @@ import {Espece} from "../../models/Espece";
 import {Rarete} from "../../models/Rarete";
 import {RareteEnum} from "../../models/enums/RareteEnum";
 import {TranslateService} from "@ngx-translate/core";
+import {CaptureService} from "../../services/capture.service";
 
 @Component({
   selector: 'app-liste-esp',
@@ -15,7 +16,8 @@ export class ListeEspComponent implements OnInit {
   @Input() typeEspece: TypeEspeceEnum;
   @Input() listeEspece: Espece[];
 
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService,
+              private captureService: CaptureService) {
   }
 
   ngOnInit(): void {
@@ -38,17 +40,17 @@ export class ListeEspComponent implements OnInit {
   public getMoisLabel(espece: Espece): string {
     let label = null;
 
-    if (espece.periodeDebut === 1 && espece.periodeFin === 12) {
+    if (espece.periodeDebutNord === 1 && espece.periodeFinNord === 12) {
       this.translateService.get('mois.tt-annee').subscribe((text: string) => {
         label = text;
       });
     } else {
       let moisDebut: string = null;
       let moisFin: string = null;
-      this.translateService.get(espece.periodeDebut.toString()).subscribe((text: string) => {
+      this.translateService.get(espece.periodeDebutNord.toString()).subscribe((text: string) => {
         moisDebut = text;
       });
-      this.translateService.get(espece.periodeFin.toString()).subscribe((text: string) => {
+      this.translateService.get(espece.periodeFinNord.toString()).subscribe((text: string) => {
         moisFin = text;
       });
       this.translateService.get('mois.periode', {'0': moisDebut, '1': moisFin}).subscribe((text: string) => {
@@ -75,6 +77,10 @@ export class ListeEspComponent implements OnInit {
       });
     }
     return label;
+  }
+
+  public captureEspece(espece: Espece): void {
+    this.captureService.capturerEspece(espece.id).subscribe((res) => console.log("ajouter"));
   }
 
 }
