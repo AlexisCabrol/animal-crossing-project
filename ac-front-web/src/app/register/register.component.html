@@ -2,7 +2,7 @@
   <h1>{{ 'account.inscription' | translate }}</h1><br>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="identifiant">{{ 'account.id' | translate }}</label>
+      <label for="identifiant">{{ 'account.id' | translate }}<em class="obligatoire">*</em></label>
       <input type="text" class="form-control" id="identifiant" formControlName="identifiant"
              placeholder="{{ 'account.id-label' | translate }}"
              [ngClass]="{ 'is-invalid': submitted && getFormField().identifiant.errors }">
@@ -11,7 +11,18 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="motDePasse">{{ 'account.password' | translate }}</label>
+      <label for="email">{{ 'account.email' | translate }}<em class="obligatoire">*</em></label>
+      <input type="text" class="form-control" id="email" formControlName="email"
+             [ngClass]="{ 'is-invalid': submitted && getFormField().email.errors }"
+             placeholder="{{ 'account.email-label' | translate }}">
+      <div *ngIf="submitted && getFormField().email.errors" class="invalid-feedback">
+        <div *ngIf="getFormField().email.errors.required">{{ 'error.register.req-email' | translate }}</div>
+        <div
+          *ngIf="getFormField().email.errors.email">{{ 'error.register.email' | translate }}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="motDePasse">{{ 'account.password' | translate }}<em class="obligatoire">*</em></label>
       <input type="password" class="form-control" id="motDePasse" formControlName="motDePasse"
              [ngClass]="{ 'is-invalid': submitted && getFormField().motDePasse.errors }"
              placeholder="{{ 'account.password-label' | translate }}">
@@ -22,7 +33,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="confirmerMotDePasse">{{ 'account.password-conf' | translate }}</label>
+      <label for="confirmerMotDePasse">{{ 'account.password-conf' | translate }}<em class="obligatoire">*</em></label>
       <input type="password" class="form-control" id="confirmerMotDePasse" formControlName="confirmerMotDePasse"
              [ngClass]="{ 'is-invalid': submitted && getFormField().confirmerMotDePasse.errors }"
              placeholder="{{ 'account.password-conf-label' | translate }}">
@@ -35,6 +46,17 @@
           *ngIf="getFormField().confirmerMotDePasse.errors.minlength">{{ 'error.register.password-minlength' | translate }}</div>
       </div>
     </div>
+    <div class="form-group">
+      <label for="discord">{{ 'account.discord' | translate }}</label>
+      <input type="text" class="form-control" id="discord" formControlName="discord"
+             placeholder="{{ 'account.discord-label' | translate }}">
+    </div>
+    <div class="form-group">
+      <label for="codeAmiNintendo">{{ 'account.codeAmiNintendo' | translate }}</label>
+      <input type="text" class="form-control" id="codeAmiNintendo" formControlName="codeAmiNintendo"
+             placeholder="{{ 'account.codeAmiNintendo-label' | translate }}">
+    </div>
+    <em>{{ 'account.required' | translate }}</em><br><br>
     <button type="submit" class="btn btn-primary">
       {{ 'account.inscrire' | translate }}
     </button>

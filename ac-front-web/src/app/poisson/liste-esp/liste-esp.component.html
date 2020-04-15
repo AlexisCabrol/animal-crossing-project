@@ -11,7 +11,8 @@
   <button type="button"
           [ngClass]="this.listeEspeceSansFiltre.length === 0 ? 'btn btn-outline-primary filter' : 'btn btn-primary filter'"
           (click)="this.filtrerSurLesEspCapture()">
-    <img style="max-width: 25px;" src="../../../assets/icons/fish.png"/>
+    <img style="max-width: 25px;"
+         [src]="this.typeEspece === TypeEspece.POISSONS ? '../../../assets/icons/fish.png': '../../../assets/icons/fillet.png'"/>
   </button>
 </div>
 <div class="row format-top">

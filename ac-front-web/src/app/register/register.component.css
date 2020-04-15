@@ -3,3 +3,8 @@
   padding: 100px 100px;
   min-height: 100vh;
 }
+
+.obligatoire {
+  margin-left: 5px;
+  color: red;
+}

@@ -1,1 +1,7 @@
-<p>insecte works!</p>
+<div class="container main-background">
+  <app-liste-esp
+    [listeEspece]="listeEspece"
+    [typeEspece]="TypeEspeceEnum.INSECTES"
+    [listeEspeceCapture]="listeEspeceCapture"
+    (outputMettreAJourListeEspeceCapture)="mettreAJourListeEspeceCapture($event)"></app-liste-esp>
+</div>

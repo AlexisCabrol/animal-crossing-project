@@ -25,19 +25,7 @@ export class PoissonComponent implements OnInit {
     });
 
     this.especeService.getPoissons().subscribe((liste: Espece[]) => {
-      const moisCourant = new Date().getMonth() + 1;
-      const heureCourante = new Date().getHours() + 1;
-
-      this.listeEspece = liste.filter((espece: Espece) => {
-        if (espece.periodeFinNord >= moisCourant && espece.periodeDebutNord <= moisCourant) {
-          return espece.heureDebut <= heureCourante && espece.heureFin >= heureCourante;
-        } else if (espece.periodeDebutNord > espece.periodeFinNord) {
-          if ((espece.periodeDebutNord >= moisCourant && espece.periodeDebutNord <= 12)
-            && (espece.periodeFinNord >= moisCourant && 1 <= espece.periodeFinNord)) {
-            return espece.heureDebut <= heureCourante && espece.heureFin >= heureCourante;
-          }
-        }
-      });
+      this.listeEspece = this.especeService.traitementPostAPI(liste);
     });
   }
 

@@ -20,7 +20,6 @@ public class LoginController {
     public BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @PostMapping("/register")
-
     public void inscription(@RequestBody Utilisateur utilisateur) {
         utilisateur.setMotDePasse(bCryptPasswordEncoder.encode(utilisateur.getMotDePasse()));
         utilisateurService.enregistrerUnUtilisateur(utilisateur);

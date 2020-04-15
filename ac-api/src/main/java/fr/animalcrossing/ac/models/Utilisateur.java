@@ -27,4 +27,13 @@ public class Utilisateur implements Serializable {
     @Column(name = "MOTDEPASSE")
     private String motDePasse;
 
+    @Column(name = "EMAIL")
+    private String email;
+
+    @Column(name = "DISCORD")
+    private String discord;
+
+    @Column(name = "CODE_AMI_NINTEDO")
+    private String codeAmiNintendo;
+
 }

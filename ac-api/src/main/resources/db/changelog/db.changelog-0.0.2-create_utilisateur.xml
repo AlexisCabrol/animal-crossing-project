@@ -15,6 +15,9 @@
                 <constraints nullable="false" unique="true"/>
             </column>
             <column name="MOTDEPASSE" type="VARCHAR(500)"/>
+            <column name="EMAIL" type="VARCHAR(200)"/>
+            <column name="DISCORD" type="VARCHAR(50)"/>
+            <column name="CODE_AMI_NINTENDO" type="VARCHAR(50)"/>
         </createTable>
 
         <createIndex tableName="UTILISATEUR" indexName="IDX_PK_UTILISATEUR" unique="true">

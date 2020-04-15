@@ -48,5 +48,8 @@
                                  onUpdate="RESTRICT"
                                  referencedColumnNames="ID_UTILISATEUR"
                                  referencedTableName="UTILISATEUR"/>
+
+        <addUniqueConstraint tableName="CAPTURE" constraintName="UNIQUE_CAPTURE"
+                             columnNames="ID_ESPECE, ID_UTILISATEUR"/>
     </changeSet>
 </databaseChangeLog>

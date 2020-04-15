@@ -24,6 +24,7 @@ export class ListeEspComponent implements OnInit, OnChanges {
   filtrageSurEspeceCaptureActive: boolean = false;
   hemisphereSelectione = Hemisphere.NORD;
   Hemisphere = Hemisphere;
+  TypeEspece = TypeEspeceEnum;
 
   constructor(private translateService: TranslateService,
               private captureService: CaptureService,

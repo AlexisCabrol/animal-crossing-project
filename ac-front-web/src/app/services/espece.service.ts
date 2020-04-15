@@ -54,4 +54,20 @@ export class EspeceService {
         return result;
       }));
   }
+
+  public traitementPostAPI(liste: Espece[]): Espece[] {
+    const moisCourant = new Date().getMonth() + 1;
+    const heureCourante = new Date().getHours() + 1;
+
+    return liste.filter((espece: Espece) => {
+      if (espece.periodeFinNord >= moisCourant && espece.periodeDebutNord <= moisCourant) {
+        return espece.heureDebut <= heureCourante && espece.heureFin >= heureCourante;
+      } else if (espece.periodeDebutNord > espece.periodeFinNord) {
+        if ((espece.periodeDebutNord >= moisCourant && espece.periodeDebutNord <= 12)
+          && (espece.periodeFinNord >= moisCourant && 1 <= espece.periodeFinNord)) {
+          return espece.heureDebut <= heureCourante && espece.heureFin >= heureCourante;
+        }
+      }
+    });
+  }
 }

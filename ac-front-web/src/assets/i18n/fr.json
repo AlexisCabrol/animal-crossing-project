@@ -22,6 +22,12 @@
   "account": {
     "titre": "Identifiez-vous",
     "id": "Identifiant",
+    "discord": "Discord",
+    "email": "Adresse mail",
+    "codeAmiNintendo": "Code ami Nintendo",
+    "discord-label": "Votre identifiant discord pour plus de convivialité",
+    "email-label": "Votre adresse mail",
+    "codeAmiNintendo-label": "Votre code ami nintendo",
     "id-label": "Votre identifiant de connexion",
     "password": "Mot de passe",
     "password-conf": "Confirmation mot de passe",
@@ -29,7 +35,8 @@
     "password-label": "Votre mot de passe",
     "se-connecter": "Se connecter",
     "inscription": "N'attendez plus, inscrivez-vous !",
-    "inscrire": "S'inscrire"
+    "inscrire": "S'inscrire",
+    "required": "* Champs obligatoires"
   },
   "error": {
     "register": {
@@ -37,7 +44,9 @@
       "password": "La saisie d'un mot de passe est requis",
       "confPassword": "La saisie de la confirmation du mot de passe est requis",
       "passwordMustMatch": "Le mot de passe et la confirmation doit être identique",
-      "password-minlength": "Votre mot de passe doit faire plus de 7 caractères"
+      "password-minlength": "Votre mot de passe doit faire plus de 7 caractères",
+      "email": "Votre adresse mail doit être une adresse valide",
+      "req-email": "La saisie d'une adresse mail est requise"
     },
     "login": "Identifiant/Mot de passe incorrect"
   },
