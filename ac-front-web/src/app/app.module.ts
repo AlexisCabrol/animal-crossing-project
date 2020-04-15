@@ -16,6 +16,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AuthenticationInterceptor} from "./services/authentication.interceptor";
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     InsecteComponent,
     ListeEspComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserAnimationsModule,

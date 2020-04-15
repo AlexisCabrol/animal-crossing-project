@@ -17,7 +17,8 @@
     "accueil": "Accueil",
     "login": "Me connecter",
     "register": "S'inscrire",
-    "logout": "Se deconnecter"
+    "logout": "Se deconnecter",
+    "profil": "Mon profil"
   },
   "account": {
     "titre": "Identifiez-vous",
@@ -52,6 +53,8 @@
   },
   "success": {
     "register": "Vous êtes bien inscrit !",
+    "connect": "Hello ! Bienvenue de retour parmis nous !",
+    "disconnect": "Vous êtes bien déconnecté, à bientôt !",
     "capture.add": "Ajout de l'espèce dans vos espèces capturées",
     "capture.delete": "Suppression de l'espèce de vos espèces capturées"
   },

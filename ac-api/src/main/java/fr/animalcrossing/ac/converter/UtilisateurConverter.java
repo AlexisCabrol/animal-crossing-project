@@ -7,6 +7,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class UtilisateurConverter {
 
+    public UtilisateurDTO toUtilisateurDTO(final Utilisateur utilisateur, final String tokenJWT) {
+        UtilisateurDTO utilisateurDTO = toUtilisateurDTO(utilisateur);
+        utilisateurDTO.setTokenJWT(tokenJWT);
+        return utilisateurDTO;
+    }
+
     public UtilisateurDTO toUtilisateurDTO(final Utilisateur utilisateur) {
         return UtilisateurDTO.builder()
                 .identifiant(utilisateur.getIdentifiant())

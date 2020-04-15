@@ -1,5 +1,7 @@
 package fr.animalcrossing.ac.security;
 
+import fr.animalcrossing.ac.converter.UtilisateurConverter;
+import fr.animalcrossing.ac.dtos.UtilisateurDTO;
 import fr.animalcrossing.ac.models.Utilisateur;
 import fr.animalcrossing.ac.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +17,13 @@ import java.util.Collections;
 public class ConnectedUserDetailsService implements UserDetailsService {
 
     private final UtilisateurRepository utilisateurRepository;
+    private final UtilisateurConverter utilisateurConverter;
 
     @Autowired
-    public ConnectedUserDetailsService(final UtilisateurRepository utilisateurRepository) {
+    public ConnectedUserDetailsService(final UtilisateurRepository utilisateurRepository,
+                                       final UtilisateurConverter utilisateurConverter) {
         this.utilisateurRepository = utilisateurRepository;
+        this.utilisateurConverter = utilisateurConverter;
     }
 
     @Override
@@ -34,5 +39,10 @@ public class ConnectedUserDetailsService implements UserDetailsService {
         // On récupère l'identifiant de l'utilisateur connecté pour le retourner
         String identifiant = SecurityUtils.getUsername();
         return utilisateurRepository.findByIdentifiant(identifiant);
+    }
+
+    public UtilisateurDTO getUtilisateurCourantDTO(String identifiant, String tokenJwt) {
+        Utilisateur utilisateur = utilisateurRepository.findByIdentifiant(identifiant);
+        return this.utilisateurConverter.toUtilisateurDTO(utilisateur, tokenJwt);
     }
 }

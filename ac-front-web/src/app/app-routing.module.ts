@@ -6,6 +6,7 @@ import {AccueilComponent} from "./accueil/accueil.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {AuthGuardService} from "./services/auth-guard.service";
+import {ProfilComponent} from "./profil/profil.component";
 
 
 const routes: Routes = [{path: '', redirectTo: '/accueil', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [{path: '', redirectTo: '/accueil', pathMatch: 'full'},
   {path: 'poissons', canActivate: [AuthGuardService], component: PoissonComponent},
   {path: 'insectes', canActivate: [AuthGuardService], component: InsecteComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'profil', canActivate: [AuthGuardService], component: ProfilComponent},
   {path: 'register', component: RegisterComponent}];
 
 @NgModule({

@@ -2,6 +2,7 @@ package fr.animalcrossing.ac.security;
 
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import fr.animalcrossing.ac.dtos.UtilisateurDTO;
 import fr.animalcrossing.ac.models.Utilisateur;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,9 +23,12 @@ import static fr.animalcrossing.ac.security.SecurityConstants.*;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
+    private final ConnectedUserDetailsService connectedUserDetailsService;
 
-    public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
+    public JWTAuthenticationFilter(AuthenticationManager authenticationManager,
+                                   ConnectedUserDetailsService connectedUserDetailsService) {
         this.authenticationManager = authenticationManager;
+        this.connectedUserDetailsService = connectedUserDetailsService;
     }
 
     @Override
@@ -49,15 +53,20 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
 
+        String identifiant = ((User) auth.getPrincipal()).getUsername();
         String token = JWT.create()
-                .withSubject(((User) auth.getPrincipal()).getUsername())
+                .withSubject(identifiant)
                 .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .sign(HMAC512(SECRET.getBytes()));
         res.addHeader("Content-Type", "application/json");
-        res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+        String JWT = TOKEN_PREFIX + token;
+        res.addHeader(HEADER_STRING, JWT);
+
         ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(TOKEN_PREFIX + token);
-        res.getWriter().write(json);
+        UtilisateurDTO utilisateur = connectedUserDetailsService.getUtilisateurCourantDTO(identifiant, JWT);
+
+        res.getWriter()
+                .write(mapper.writeValueAsString(utilisateur));
         res.flushBuffer();
     }
 }

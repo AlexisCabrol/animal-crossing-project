@@ -8,4 +8,5 @@ export class Utilisateur extends JSONBuilder {
   email: string;
   discord: string;
   codeAmiNintendo: string;
+  tokenJWT: string;
 }
