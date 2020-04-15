@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Utilisateur} from "../models/Utilisateur";
 import {AuthenticationService} from "../services/authentication.service";
 import {MessageHandlerService} from "../services/handlers/message-handler.service";
+import * as Hash from "hash.js";
 
 @Component({
   selector: 'app-login',
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
 
   public lancerIdentification(): void {
     this.message = null;
+    this.utilisateur.motDePasse = Hash.sha512().update(this.utilisateur.motDePasse).digest('hex');
     this.authenticationService.login(this.utilisateur);
   }
 

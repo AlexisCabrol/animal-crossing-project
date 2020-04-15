@@ -14,8 +14,4 @@ export class UtilisateurService {
   public inscrire(utilisateur: Utilisateur): Observable<any> {
     return this.http.post('http://localhost:8080/register', utilisateur);
   }
-
-  public identification(utilisateur: Utilisateur): Observable<any> {
-    return this.http.post('http://localhost:8080/login', utilisateur);
-  }
 }

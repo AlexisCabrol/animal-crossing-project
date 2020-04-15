@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MustMatch} from "../validators/MustMatch";
 import {Router} from "@angular/router";
 import {MessageHandlerService} from "../services/handlers/message-handler.service";
+import * as Hash from "hash.js";
 
 @Component({
   selector: 'app-register',
@@ -57,6 +58,7 @@ export class RegisterComponent implements OnInit {
     utilisateur.discord = this.registerForm.value['discord'];
     utilisateur.codeAmiNintendo = this.registerForm.value['codeAmiNintendo'];
 
+    utilisateur.motDePasse = Hash.sha512().update(utilisateur.motDePasse).digest('hex');
     this.utilisateurService.inscrire(utilisateur).subscribe(() => {
       this.messageHandlerService.setMessageHandler('success.register');
       this.router.navigate(['login']);
