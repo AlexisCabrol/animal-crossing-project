@@ -2,6 +2,10 @@
   font-size: smaller;
 }
 
+.filter {
+  margin-right: 10px;
+}
+
 .format-top {
   margin-top: 10px;
 }

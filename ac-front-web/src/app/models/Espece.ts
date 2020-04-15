@@ -18,6 +18,8 @@ export class Espece extends JSONBuilder {
   rarete: Rarete;
   typeEspece: TypeEspece;
 
+  labelPeriode: string;
+
   static fromJson<T>(json: any, constructor: ConstructeurSansParametre<T>): T {
     const result: any = super.fromJson(json, constructor);
     const espece: Espece = result as Espece;

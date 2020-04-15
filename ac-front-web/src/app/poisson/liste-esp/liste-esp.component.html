@@ -1,7 +1,15 @@
 <div class="row format-top">
   <h2>{{ 'espece.titre' | translate : {'0': listeEspece.length, '1': typeEspece} }}</h2>
 </div>
-<div class="row">
+<div class="row format-top">
+  <button type="button"
+          [ngClass]="this.hemisphereSelectione === Hemisphere.NORD ? 'btn btn-primary filter' : 'btn btn-outline-primary filter'"
+          (click)="this.changeHemisphere(Hemisphere.NORD)">{{ 'espece.filter.nord' | translate }}</button>
+  <button type="button"
+          [ngClass]="this.hemisphereSelectione === Hemisphere.SUD ? 'btn btn-primary filter' : 'btn btn-outline-primary filter'"
+          (click)="this.changeHemisphere(Hemisphere.SUD)">{{ 'espece.filter.sud' | translate }}</button>
+</div>
+<div class="row format-top">
   <ng-container *ngFor="let esp of listeEspece">
     <div class="col-sm-4">
       <div class="card format-top">
@@ -19,7 +27,7 @@
               <img class="icon-esp" [src]="getPhotoUrl(esp)">
             </div>
             <div class="col-sm-8">
-              <p class="card-container">{{ getMoisLabel(esp) }}<br>
+              <p class="card-container">{{ esp.labelPeriode }}<br>
                 {{ getHeureLabel(esp) }}<br>
                 {{ 'espece.lieu' | translate : {'0': esp.lieu.lieu} }}<br>
                 {{ 'espece.prix' | translate : {'0': esp.prix} }}<br></p>

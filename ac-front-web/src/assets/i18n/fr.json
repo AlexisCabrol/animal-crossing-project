@@ -4,7 +4,11 @@
     "prix": "Prix : {{0}} clochettes",
     "lieu": "Lieu : {{0}}",
     "heure": "Disponibilité : {{0}}h - {{1}}h",
-    "tt-journee": "Disponibilité : Toute la journée"
+    "tt-journee": "Disponibilité : Toute la journée",
+    "filter": {
+      "nord": "Hémisphère nord",
+      "sud": "Hémisphère sud"
+    }
   },
   "menu": {
     "poisson": "Poissons",
