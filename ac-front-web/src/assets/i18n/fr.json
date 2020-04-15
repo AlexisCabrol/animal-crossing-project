@@ -39,6 +39,10 @@
     "inscrire": "S'inscrire",
     "required": "* Champs obligatoires"
   },
+  "profil": {
+    "discord": "Discord : {{0}}",
+    "codeami": "Code ami : {{0}}"
+  },
   "error": {
     "register": {
       "id": "La saisie d'un identifiant est requis",

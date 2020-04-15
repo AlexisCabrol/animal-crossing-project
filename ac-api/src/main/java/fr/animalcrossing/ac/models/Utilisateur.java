@@ -33,7 +33,7 @@ public class Utilisateur implements Serializable {
     @Column(name = "DISCORD")
     private String discord;
 
-    @Column(name = "CODE_AMI_NINTEDO")
+    @Column(name = "CODE_AMI_NINTENDO")
     private String codeAmiNintendo;
 
 }

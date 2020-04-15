@@ -16,9 +16,9 @@ const routes: Routes = [{path: '', redirectTo: '/accueil', pathMatch: 'full'},
   {path: 'insectes', canActivate: [AuthGuardService], component: InsecteComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profil', canActivate: [AuthGuardService], component: ProfilComponent},
+  {path: 'register', component: RegisterComponent},
   {path: '**', redirectTo: 'not-found'},
-  {path: 'not-found', component: NotfoundComponent},
-  {path: 'register', component: RegisterComponent}];
+  {path: 'not-found', component: NotfoundComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -15,6 +15,6 @@ public class UtilisateurDTO implements Serializable {
     private String identifiant;
     private String email;
     private String discord;
-    private String codeAmiNintedo;
+    private String codeAmiNintendo;
     private String tokenJWT;
 }

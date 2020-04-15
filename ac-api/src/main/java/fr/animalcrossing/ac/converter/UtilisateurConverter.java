@@ -18,7 +18,7 @@ public class UtilisateurConverter {
                 .identifiant(utilisateur.getIdentifiant())
                 .email(utilisateur.getEmail())
                 .discord(utilisateur.getDiscord())
-                .codeAmiNintedo(utilisateur.getCodeAmiNintendo())
+                .codeAmiNintendo(utilisateur.getCodeAmiNintendo())
                 .build();
     }
 }

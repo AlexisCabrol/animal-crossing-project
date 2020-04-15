@@ -2,4 +2,14 @@
   <div class="row">
     <h1>{{ utilisateurCourant.identifiant }}</h1>
   </div>
+  <div class="row" *ngIf="utilisateurCourant.discord">
+    <h4><span
+      class="badge badge-discord">{{ 'profil.discord' | translate : {'0': utilisateurCourant.discord} }}</span>
+    </h4>
+  </div>
+  <div class="row" *ngIf="utilisateurCourant.codeAmiNintendo">
+    <h4><span
+      class="badge badge-danger">{{ 'profil.codeami' | translate : {'0': utilisateurCourant.codeAmiNintendo} }}</span>
+    </h4>
+  </div>
 </div>
