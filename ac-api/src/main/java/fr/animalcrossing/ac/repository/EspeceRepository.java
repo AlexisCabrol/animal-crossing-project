@@ -19,4 +19,7 @@ public interface EspeceRepository extends JpaRepository<Espece, Integer> {
      */
     @Query("select p from Espece as p where p.typeEspece.id = :typeEspece")
     List<Espece> selectionnerUnTypeEspece(@Param("typeEspece") Integer typeEspece);
+
+    @Query("select p from Espece p where p.id in :listeId")
+    List<Espece> selectionnerToutesEspecesCaptureDunUtilisateur(@Param("listeId") List<Integer> listeId);
 }

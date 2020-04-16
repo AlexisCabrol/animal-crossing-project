@@ -30,4 +30,9 @@ public class EspeceController {
     public List<EspeceDTO> getInsectes() {
         return especeService.selectionnerUnTypeEspece(2);
     }
+
+    @GetMapping("/especes/profil")
+    public List<EspeceDTO> getEspecesParUtilisateur() {
+        return especeService.selectionnerToutesEspecesCapture();
+    }
 }

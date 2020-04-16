@@ -41,7 +41,9 @@
   },
   "profil": {
     "discord": "Discord : {{0}}",
-    "codeami": "Code ami : {{0}}"
+    "codeami": "Code ami : {{0}}",
+    "bebetopedie": "Bébétopédie",
+    "bebetopedie.aucun": "Bébétopédie vide, rendez-vous dans les onglets poissons/insectes pour l'a remplir !"
   },
   "error": {
     "register": {

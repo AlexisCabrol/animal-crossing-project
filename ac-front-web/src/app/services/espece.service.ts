@@ -27,6 +27,17 @@ export class EspeceService {
       }));
   }
 
+  public getSelectionnerToutesEspecesCapture(): Observable<Espece[]> {
+    return this.http.get('http://localhost:8080/especes/profil').pipe(
+      map((res: Espece[]) => {
+        const result = [];
+        for (let i = 0; i < res.length; i++) {
+          result.push(Espece.fromJson(res[i], Espece));
+        }
+        return result;
+      }));
+  }
+
   /**
    * Méthode permettant de faire appel à l'API pour avoir la liste des poissons
    */

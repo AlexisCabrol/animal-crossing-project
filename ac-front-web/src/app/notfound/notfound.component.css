@@ -1,5 +1,9 @@
 .main-background {
   background-color: white;
-  padding: 100px 100px;
-  min-height: 100vh;
+  text-align: center;
+}
+
+.notfound {
+  margin-top: 50px;
+  width: 600px;
 }
