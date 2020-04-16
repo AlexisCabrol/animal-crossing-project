@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Création de la table NEWS -->
+    <changeSet author="alexis" id="1">
+        <createTable tableName="NEWS" remarks="Table regroupant les news du site">
+            <column name="ID_NEWS" type="NUMBER(8, 0)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="TITRE" type="VARCHAR(50)"/>
+            <column name="DESCRIPTION" type="VARCHAR(100)"/>
+            <column name="CONTENU" type="VARCHAR(1000)"/>
+            <column name="DT_PUBLICATION" type="DATE"/>
+        </createTable>
+
+        <createIndex tableName="NEWS" indexName="IDX_PK_NEWS" unique="true">
+            <column name="ID_NEWS"/>
+        </createIndex>
+        <addPrimaryKey tableName="NEWS" columnNames="ID_NEWS" constraintName="PK_NEWS"/>
+        <createSequence sequenceName="SEQ_NEWS" cacheSize="0" cycle="false"
+                        incrementBy="1" maxValue="99999999999" minValue="0"
+                        ordered="false" startValue="0"/>
+    </changeSet>
+</databaseChangeLog>

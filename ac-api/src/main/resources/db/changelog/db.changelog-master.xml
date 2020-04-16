@@ -8,4 +8,5 @@
     <include file="db/changelog/db.changelog-0.0.1-create_table.xml"/>
     <include file="db/changelog/db.changelog-0.0.2-create_utilisateur.xml"/>
     <include file="db/changelog/db.changelog-0.0.3-create_capture.xml"/>
+    <include file="db/changelog/db.changelog-0.0.4-create_news.xml"/>
 </databaseChangeLog>
