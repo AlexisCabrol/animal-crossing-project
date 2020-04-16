@@ -21,6 +21,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { ProfilEditComponent } from './profil/profil-edit/profil-edit.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListeNewsComponent } from './liste-news/liste-news.component';
+import { PostNewsComponent } from './liste-news/post-news/post-news.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ListeNewsComponent } from './liste-news/liste-news.component';
     NotfoundComponent,
     ProfilEditComponent,
     FooterComponent,
-    ListeNewsComponent
+    ListeNewsComponent,
+    PostNewsComponent
   ],
   imports: [
     BrowserAnimationsModule,

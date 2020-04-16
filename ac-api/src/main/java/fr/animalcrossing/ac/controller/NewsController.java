@@ -3,9 +3,7 @@ package fr.animalcrossing.ac.controller;
 import fr.animalcrossing.ac.dtos.NewsDTO;
 import fr.animalcrossing.ac.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,5 +17,10 @@ public class NewsController {
     @GetMapping("/news")
     public List<NewsDTO> getToutesLesNews() {
         return newsService.getToutesLesNews();
+    }
+
+    @PostMapping("/news")
+    public void posterUneNews(@RequestBody NewsDTO newsDTO) {
+        newsService.posterUneNews(newsDTO);
     }
 }

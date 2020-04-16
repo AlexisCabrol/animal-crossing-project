@@ -25,6 +25,9 @@
         <a class="nav-link" routerLink="/profil" routerLinkActive="active">{{ 'menu.profil' | translate}}</a>
       </li>
       <li class="nav-item" *ngIf="authenticationService.getConnecter()">
+        <a class="nav-link" routerLink="/news" routerLinkActive="active">{{ 'menu.post' | translate}}</a>
+      </li>
+      <li class="nav-item" *ngIf="authenticationService.getConnecter()">
         <a class="nav-link" (click)="authenticationService.logout()">{{ 'menu.logout' | translate}}</a>
       </li>
     </ul>

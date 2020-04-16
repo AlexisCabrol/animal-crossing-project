@@ -20,4 +20,17 @@ public class NewsConverter {
                 .datePublication(news.getDatePublication())
                 .build();
     }
+
+    public News toNews(final NewsDTO newsDTO) {
+        if (newsDTO == null) {
+            return null;
+        }
+
+        return News.builder()
+                .titre(newsDTO.getTitre())
+                .description(newsDTO.getDescription())
+                .contenu(newsDTO.getContenu())
+                .datePublication(newsDTO.getDatePublication())
+                .build();
+    }
 }

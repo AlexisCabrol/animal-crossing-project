@@ -9,6 +9,7 @@ import {AuthGuardService} from "./services/auth-guard.service";
 import {ProfilComponent} from "./profil/profil.component";
 import {NotfoundComponent} from "./notfound/notfound.component";
 import {ProfilEditComponent} from "./profil/profil-edit/profil-edit.component";
+import {PostNewsComponent} from "./liste-news/post-news/post-news.component";
 
 
 const routes: Routes = [{path: '', redirectTo: '/accueil', pathMatch: 'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [{path: '', redirectTo: '/accueil', pathMatch: 'full'},
   {path: 'poissons', canActivate: [AuthGuardService], component: PoissonComponent},
   {path: 'insectes', canActivate: [AuthGuardService], component: InsecteComponent},
   {path: 'profil', canActivate: [AuthGuardService], component: ProfilComponent},
+  {path: 'news', canActivate: [AuthGuardService], component: PostNewsComponent},
   {path: 'profil/update', canActivate: [AuthGuardService], component: ProfilEditComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},

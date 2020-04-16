@@ -12,6 +12,10 @@ export class NewsService {
   constructor(private http: HttpClient) {
   }
 
+  public posterUneNews(news: News): Observable<any> {
+    return this.http.post('http://localhost:8080/news', news);
+  }
+
   public getToutesNews(): Observable<News[]> {
     return this.http.get('http://localhost:8080/news').pipe(
       map((res: News[]) => {

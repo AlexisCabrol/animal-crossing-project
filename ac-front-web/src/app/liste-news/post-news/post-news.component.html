@@ -1,0 +1,38 @@
+<div class="container main-background">
+  <h1>{{ 'account.inscription' | translate }}</h1><br>
+  <form [formGroup]="postNewsForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="titre">{{ 'news.titre-field' | translate }}</label>
+      <input type="text" class="form-control" id="titre" formControlName="titre"
+             placeholder="{{ 'news.titre-field' | translate }}"
+             [ngClass]="{ 'is-invalid': submitted && getFormField().titre.errors }">
+      <div *ngIf="submitted && getFormField().titre.errors" class="invalid-feedback">
+        <div *ngIf="getFormField().titre.errors.required">{{ 'error.news.titre' | translate }}</div>
+        <div *ngIf="getFormField().titre.errors.maxlength">{{ 'error.news.titre-length' | translate }}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">{{ 'news.description-field' | translate }}</label>
+      <input type="text" class="form-control" id="description" formControlName="description"
+             [ngClass]="{ 'is-invalid': submitted && getFormField().description.errors }"
+             placeholder="{{ 'news.description-field' | translate }}">
+      <div *ngIf="submitted && getFormField().description.errors" class="invalid-feedback">
+        <div *ngIf="getFormField().description.errors.required">{{ 'error.news.description' | translate }}</div>
+        <div *ngIf="getFormField().description.errors.maxlength">{{ 'error.news.description-length' | translate }}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="contenu">{{ 'news.contenu-field' | translate }}</label>
+      <textarea type="textarea" class="form-control" id="contenu" formControlName="contenu"
+                [ngClass]="{ 'is-invalid': submitted && getFormField().contenu.errors }"
+                placeholder="{{ 'news.contenu-field' | translate }}"></textarea>
+      <div *ngIf="submitted && getFormField().contenu.errors" class="invalid-feedback">
+        <div *ngIf="getFormField().contenu.errors.required">{{ 'error.news.contenu' | translate }}</div>
+        <div *ngIf="getFormField().contenu.errors.maxlength">{{ 'error.news.contenu-length' | translate }}</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      {{ 'news.action' | translate }}
+    </button>
+  </form>
+</div>

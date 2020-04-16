@@ -8,6 +8,10 @@
     "p3": "Dans une prochaine mise à jour du site, une place d'échange te permettera d'échanger plus facilement des objets avec les autres joueurs."
   },
   "news": {
+    "action": "Et hop, j'envoie !",
+    "titre-field": "Titre de l'article",
+    "description-field": "Description de l'article",
+    "contenu-field": "Contenu de l'article",
     "titre": "Les actualités sur la planète des îles pardisiaques de New Horizons !"
   },
   "espece": {
@@ -30,7 +34,8 @@
     "login": "Me connecter",
     "register": "S'inscrire",
     "logout": "Se deconnecter",
-    "profil": "Mon profil"
+    "profil": "Mon profil",
+    "post": "Poster un nouvel article"
   },
   "account": {
     "titre": "Identifiez-vous",
@@ -70,6 +75,14 @@
       "password-minlength": "Votre mot de passe doit faire plus de 7 caractères",
       "email": "Votre adresse mail doit être une adresse valide",
       "req-email": "La saisie d'une adresse mail est requise"
+    },
+    "news": {
+      "titre": "La saisie du titre est obligatoire",
+      "titre-length": "Le titre ne doit pas dépasser 50 caractères",
+      "description": "La saisie de la description est obligatoire",
+      "description-length": "La description ne doit pas dépasser 100 caractères",
+      "contenu": "La saisie du contenu est obligatoire",
+      "contenu-length": "Le contenu ne doit pas dépasser 1000 caractères"
     },
     "login": "Identifiant/Mot de passe incorrect",
     "404": "La page demandée n'existe pas, êtes-vous perdu ?",
