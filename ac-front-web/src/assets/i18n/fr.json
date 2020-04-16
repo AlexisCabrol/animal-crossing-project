@@ -1,5 +1,15 @@
 {
   "titre": "Crossing Evasion",
+  "footer": "Crossing Evasion © 2020 - Tous droits réservés - Ce site n’est pas affilié à Nintendo®",
+  "accueil": {
+    "welcome": "Bienvenue sur Crossing Evasion, explorateur insulaire !",
+    "p1": "Crossing évasion est un site qui repertorie toutes les poissons, insectes en temps réel. Créer toi un compte gratuitement qui te permettera d'entrer ta bébétopédie afin de savoir quelles espèces il te manque !",
+    "p2": "Partage ton profil avec tes amis afin de leur montrer ton statut d'avancement sur Animal Crossing : New Horizons !",
+    "p3": "Dans une prochaine mise à jour du site, une place d'échange te permettera d'échanger plus facilement des objets avec les autres joueurs."
+  },
+  "news": {
+    "titre": "Les actualités sur la planète des îles pardisiaques de New Horizons !"
+  },
   "espece": {
     "titre": "Sur l'île principale, il y a actuellement {{0}} {{1}}",
     "titre-rest": "Sur l'île principale, il vous reste {{0}} {{1}} à attraper",

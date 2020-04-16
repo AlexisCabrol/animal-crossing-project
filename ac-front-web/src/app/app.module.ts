@@ -19,6 +19,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ProfilComponent } from './profil/profil.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ProfilEditComponent } from './profil/profil-edit/profil-edit.component';
+import { FooterComponent } from './footer/footer.component';
+import { ListeNewsComponent } from './liste-news/liste-news.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ProfilEditComponent } from './profil/profil-edit/profil-edit.component'
     RegisterComponent,
     ProfilComponent,
     NotfoundComponent,
-    ProfilEditComponent
+    ProfilEditComponent,
+    FooterComponent,
+    ListeNewsComponent
   ],
   imports: [
     BrowserAnimationsModule,

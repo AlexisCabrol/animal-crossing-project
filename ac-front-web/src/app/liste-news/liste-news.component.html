@@ -1,0 +1,20 @@
+<h2>{{ 'news.titre' | translate }}</h2>
+<ng-container *ngFor="let news of listeNews">
+  <div class="row format-top">
+    <div class="col-sm-4">
+      <img src="../../assets/actu1.jpg" class="img-news"/>
+    </div>
+    <div class="col-sm-8 format-margin-left">
+      <div class="row format-text-title">
+        <b>{{ news.titre }}</b>
+      </div>
+      <div class="row">
+        <em class="format-text-date">{{ news.datePublication }}</em>
+      </div>
+      <br/>
+      <div class="row">
+        {{ news.description }}
+      </div>
+    </div>
+  </div>
+</ng-container>
