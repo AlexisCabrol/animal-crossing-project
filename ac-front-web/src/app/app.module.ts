@@ -18,6 +18,7 @@ import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ProfilComponent } from './profil/profil.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { ProfilEditComponent } from './profil/profil-edit/profil-edit.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     LoginComponent,
     RegisterComponent,
     ProfilComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    ProfilEditComponent
   ],
   imports: [
     BrowserAnimationsModule,

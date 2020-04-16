@@ -1,0 +1,38 @@
+<div class="container main-background">
+  <h1>{{ 'profil.edit.titre' | translate }}</h1><br>
+  <form [formGroup]="profilEditForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="motDePasse">{{ 'account.password' | translate }}</label>
+      <input type="password" class="form-control" id="motDePasse" formControlName="motDePasse"
+             [ngClass]="{ 'is-invalid': submitted && getFormField().motDePasse.errors }"
+             placeholder="{{ 'account.password-label' | translate }}">
+      <div *ngIf="submitted && getFormField().motDePasse.errors" class="invalid-feedback">
+        <div
+          *ngIf="getFormField().motDePasse.errors.minlength">{{ 'error.register.password-minlength' | translate }}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="confirmerMotDePasse">{{ 'account.password-conf' | translate }}</label>
+      <input type="password" class="form-control" id="confirmerMotDePasse" formControlName="confirmerMotDePasse"
+             [ngClass]="{ 'is-invalid': submitted && getFormField().confirmerMotDePasse.errors }"
+             placeholder="{{ 'account.password-conf-label' | translate }}">
+      <div *ngIf="submitted && getFormField().confirmerMotDePasse.errors" class="invalid-feedback">
+        <div
+          *ngIf="getFormField().confirmerMotDePasse.errors.mustMatch">{{ 'error.register.passwordMustMatch' | translate }}</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="discord">{{ 'account.discord' | translate }}</label>
+      <input type="text" class="form-control" id="discord" formControlName="discord"
+             placeholder="{{ 'account.discord-label' | translate }}">
+    </div>
+    <div class="form-group">
+      <label for="codeAmiNintendo">{{ 'account.codeAmiNintendo' | translate }}</label>
+      <input type="text" class="form-control" id="codeAmiNintendo" formControlName="codeAmiNintendo"
+             placeholder="{{ 'account.codeAmiNintendo-label' | translate }}">
+    </div>
+    <button type="submit" class="btn btn-primary">
+      {{ 'profil.edit.update' | translate }}
+    </button>
+  </form>
+</div>

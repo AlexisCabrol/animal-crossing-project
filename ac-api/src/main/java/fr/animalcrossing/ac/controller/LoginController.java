@@ -24,4 +24,12 @@ public class LoginController {
         utilisateur.setMotDePasse(bCryptPasswordEncoder.encode(utilisateur.getMotDePasse()));
         utilisateurService.enregistrerUnUtilisateur(utilisateur);
     }
+
+    @PostMapping("/profil/update")
+    public Utilisateur mettreAJourInformationProfil(@RequestBody Utilisateur utilisateur) {
+        if (utilisateur.getMotDePasse() != null) {
+            utilisateur.setMotDePasse(bCryptPasswordEncoder.encode(utilisateur.getMotDePasse()));
+        }
+        return utilisateurService.mettreAJourUtilisateur(utilisateur);
+    }
 }

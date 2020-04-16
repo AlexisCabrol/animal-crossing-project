@@ -3,6 +3,7 @@ import {AuthenticationService} from "../services/authentication.service";
 import {Utilisateur} from "../models/Utilisateur";
 import {EspeceService} from "../services/espece.service";
 import {Espece} from "../models/Espece";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profil',
@@ -15,7 +16,8 @@ export class ProfilComponent implements OnInit {
   public listeEspeceCapture: Espece[] = [];
 
   constructor(private authenticationService: AuthenticationService,
-              private especeService: EspeceService) {
+              private especeService: EspeceService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -27,6 +29,10 @@ export class ProfilComponent implements OnInit {
 
   public getPhotoUrl(espece: Espece): string {
     return "../../../assets/espece/" + espece.id + ".png";
+  }
+
+  public goToEdit(): void {
+    this.router.navigate(['profil/update']);
   }
 
 }

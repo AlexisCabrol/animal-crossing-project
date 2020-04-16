@@ -42,6 +42,18 @@ export class AuthenticationService {
     });
   }
 
+  public mettreAJourUtilisateur(utilisateur: Utilisateur) {
+    delete utilisateur.frontMotDePasse;
+    return this.http.post('http://localhost:8080/profil/update', utilisateur)
+      .subscribe((res: Utilisateur) => {
+        this.utilisateurConnecte = res;
+        this.translateService.get('success.update-profil').subscribe((texte: string) => {
+          this.toastService.success(texte);
+        });
+        this.router.navigate(['profil']);
+      });
+  }
+
   public getUtilisateurConnecter(): Utilisateur {
     return this.utilisateurConnecte;
   }

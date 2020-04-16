@@ -1,4 +1,5 @@
 {
+  "titre": "Crossing Evasion",
   "espece": {
     "titre": "Sur l'île principale, il y a actuellement {{0}} {{1}}",
     "prix": "Prix : {{0}} clochettes",
@@ -43,7 +44,11 @@
     "discord": "Discord : {{0}}",
     "codeami": "Code ami : {{0}}",
     "bebetopedie": "Bébétopédie",
-    "bebetopedie.aucun": "Bébétopédie vide, rendez-vous dans les onglets poissons/insectes pour l'a remplir !"
+    "bebetopedie.aucun": "Bébétopédie vide, rendez-vous dans les onglets poissons/insectes pour l'a remplir !",
+    "edit": {
+      "titre": "Mettre à jour vos informations",
+      "update": "Soumettre la mise à jour"
+    }
   },
   "error": {
     "register": {
@@ -63,7 +68,8 @@
     "connect": "Hello ! Bienvenue de retour parmis nous !",
     "disconnect": "Vous êtes bien déconnecté, à bientôt !",
     "capture.add": "Ajout de l'espèce dans vos espèces capturées",
-    "capture.delete": "Suppression de l'espèce de vos espèces capturées"
+    "capture.delete": "Suppression de l'espèce de vos espèces capturées",
+    "update-profil": "Votre profil à bien été mis à jour."
   },
   "mois": {
     "periode": "Période : {{0}} - {{1}}",

@@ -1,6 +1,11 @@
 <div class="container main-background">
   <div class="row">
-    <h1>{{ utilisateurCourant.identifiant }}</h1>
+    <div class="col-sm-10">
+      <h1>{{ utilisateurCourant.identifiant }}</h1>
+    </div>
+    <div class="col-sm-2">
+      <img src="../../assets/icons/edit.png" style="width: 30px; margin-top: 10px;" (click)="goToEdit()"/>
+    </div>
   </div>
   <div class="row" *ngIf="utilisateurCourant.discord">
     <h4><span
