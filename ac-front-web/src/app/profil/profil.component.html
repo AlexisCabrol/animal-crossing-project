@@ -1,6 +1,6 @@
 <div class="container main-background">
   <div class="row">
-    <div class="col-sm-10">
+    <div class="col-sm-10 override-padding">
       <h1>{{ utilisateurCourant.identifiant }}</h1>
     </div>
     <div class="col-sm-2">
@@ -19,12 +19,16 @@
   </div>
   <br/><br/>
   <ng-container *ngIf="listeEspeceCapture.length > 0">
-    <h2>{{ 'profil.bebetopedie' | translate }}</h2><br/>
+    <div class="row">
+      <h2 class="override-padding">{{ 'profil.bebetopedie' | translate }}</h2><br/>
+    </div>
     <ng-container *ngFor="let esp of listeEspeceCapture">
       <img class="bebetopedie" [src]="getPhotoUrl(esp)"/>
     </ng-container>
   </ng-container>
   <ng-container *ngIf="listeEspeceCapture.length === 0">
-    <h2>{{ 'profil.bebetopedie.aucun' | translate }}</h2>
+    <div class="row">
+      <h2 class="override-padding">{{ 'profil.bebetopedie.aucun' | translate }}</h2>
+    </div>
   </ng-container>
 </div>

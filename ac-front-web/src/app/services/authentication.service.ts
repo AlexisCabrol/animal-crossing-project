@@ -22,7 +22,8 @@ export class AuthenticationService {
   public login(utilisateur: Utilisateur) {
     delete utilisateur.frontMotDePasse;
     return this.http.post('http://localhost:8080/login', utilisateur)
-      .subscribe((res: Utilisateur) => {
+      .toPromise()
+      .then((res: Utilisateur) => {
 
         this.stockage.setItem('id_token', res.tokenJWT);
         this.utilisateurConnecte = res;
@@ -30,6 +31,11 @@ export class AuthenticationService {
           this.toastService.success(texte);
         });
         this.router.navigate(['profil']);
+      })
+      .catch((err: any) => {
+        this.translateService.get('error.connect').subscribe((texte: string) => {
+          this.toastService.error(texte);
+        });
       });
   }
 

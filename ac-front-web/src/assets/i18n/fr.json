@@ -2,6 +2,7 @@
   "titre": "Crossing Evasion",
   "espece": {
     "titre": "Sur l'île principale, il y a actuellement {{0}} {{1}}",
+    "titre-rest": "Sur l'île principale, il vous reste {{0}} {{1}} à attraper",
     "prix": "Prix : {{0}} clochettes",
     "lieu": "Lieu : {{0}}",
     "heure": "Disponibilité : {{0}}h - {{1}}h",
@@ -61,7 +62,8 @@
       "req-email": "La saisie d'une adresse mail est requise"
     },
     "login": "Identifiant/Mot de passe incorrect",
-    "404": "La page demandée n'existe pas, êtes-vous perdu ?"
+    "404": "La page demandée n'existe pas, êtes-vous perdu ?",
+    "connect": "Erreur d'identifiant/mot de passe, veuillez réessayer"
   },
   "success": {
     "register": "Vous êtes bien inscrit !",

@@ -69,7 +69,7 @@ export class ListeEspComponent implements OnInit, OnChanges {
     } else if (rarete.id === RareteEnum.RARE) {
       return 'badge-info';
     } else if (rarete.id === RareteEnum.COMMUN) {
-      return 'badge-light';
+      return 'badge-success';
     }
   }
 

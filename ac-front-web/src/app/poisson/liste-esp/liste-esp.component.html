@@ -1,5 +1,12 @@
 <div class="row format-top">
-  <h2>{{ 'espece.titre' | translate : {'0': listeEspece.length, '1': typeEspece} }}</h2>
+  <h2 *ngIf="this.listeEspeceSansFiltre.length === 0">{{ 'espece.titre' | translate : {
+      '0': listeEspece.length,
+      '1': typeEspece
+  } }}</h2>
+  <h2 *ngIf="this.listeEspeceSansFiltre.length > 0">{{ 'espece.titre-rest' | translate : {
+      '0': listeEspece.length,
+      '1': typeEspece
+  } }}</h2>
 </div>
 <div class="row format-top">
   <button type="button"

@@ -13,3 +13,7 @@
   padding: 100px 100px;
   min-height: 100vh;
 }
+
+.override-padding {
+  padding-left: 0px !important;
+}
